@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard | Trovvin Recyclers</title>
+    <meta name="description" content="Your personal e-waste recycling dashboard">
+    <!-- Production-optimized Tailwind CSS -->
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+        }
+        .status-scheduled {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        .status-completed {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .status-pending {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-emerald-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-recycle text-2xl"></i>
+                <span class="text-xl font-bold">Trovvin Recyclers</span>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-emerald-200">Home</a>
+                <a href="how-it-works.html" class="hover:text-emerald-200">How It Works</a>
+                <a href="request-pickup.html" class="hover:text-emerald-200">Request Pickup</a>
+                <a href="rewards.html" class="hover:text-emerald-200">Rewards</a>
+                <a href="#" class="text-emerald-200 font-medium">Dashboard</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white font-medium">U</div>
+                    <span>User</span>
+                </div>
+                <button class="bg-emerald-700 text-white px-4 py-2 rounded-md font-medium hover:bg-emerald-800">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Welcome Section -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-800">Welcome back, User!</h1>
+                    <p class="text-gray-600">Here's your recycling activity and rewards</p>
+                </div>
+                <button class="bg-emerald-500 text-white px-6 py-3 rounded-md font-medium hover:bg-emerald-600 mt-4 md:mt-0">
+                    <i class="fas fa-plus mr-2"></i> New Pickup Request
+                </button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <!-- Total Recycled -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500">Total Recycled</p>
+                            <p class="text-2xl font-bold text-gray-800">24.5 <span class="text-lg">kg</span></p>
+                        </div>
+                        <div class="bg-emerald-100 text-emerald-600 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-weight-hanging"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rewards Earned -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500">Rewards Earned</p>
+                            <p class="text-2xl font-bold text-gray-800">₹122.50</p>
+                        </div>
+                        <div class="bg-emerald-100 text-emerald-600 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Environmental Impact -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500">CO₂ Saved</p>
+                            <p class="text-2xl font-bold text-gray-800">58 <span class="text-lg">kg</span></p>
+                        </div>
+                        <div class="bg-emerald-100 text-emerald-600 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Pickup -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                <div class="p-6 border-b border-gray-200">
+                    <h2 class="text-xl font-bold text-gray-800">Current Pickup</h2>
+                </div>
+                <div class="p-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-lg font-semibold mb-1">Electronics Pickup</h3>
+                            <div class="flex items-center space-x-4">
+                                <span class="text-gray-600">Scheduled for: <span class="font-medium">25 Oct 2023, 2:00-5:00 PM</span></span>
+                                <span class="status-badge status-scheduled">Scheduled</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-md font-medium hover:bg-gray-50">
+                                <i class="fas fa-edit mr-2"></i> Reschedule
+                            </button>
+                            <button class="border border-red-300 text-red-600 px-4 py-2 rounded-md font-medium hover:bg-red-50">
+                                <i class="fas fa-times mr-2"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Pickup History -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6 border-b border-gray-200">
+                        <h2 class="text-xl font-bold text-gray-800">Pickup History</h2>
+                    </div>
+                    <div class="divide-y divide-gray-200">
+                        <!-- Pickup 1 -->
+                        <div class="p-6 hover:bg-gray-50">
+                            <div class="flex justify-between items-center mb-2">
+                                <div class="font-medium">Laptop Recycling</div>
+                                <span class="status-badge status-completed">Completed</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <div>5.0 kg • 15 Oct 2023</div>
+                                <div class="text-emerald-500 font-medium">+₹25.00</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pickup 2 -->
+                        <div class="p-6 hover:bg-gray-50">
+                            <div class="flex justify-between items-center mb-2">
+                                <div class="font-medium">Mobile Phones</div>
+                                <span class="status-badge status-completed">Completed</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <div>3.0 kg • 8 Oct 2023</div>
+                                <div class="text-emerald-500 font-medium">+₹15.00</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pickup 3 -->
+                        <div class="p-6 hover:bg-gray-50">
+                            <div class="flex justify-between items-center mb-2">
+                                <div class="font-medium">Batteries</div>
+                                <span class="status-badge status-completed">Completed</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <div>2.5 kg • 1 Oct 2023</div>
+                                <div class="text-emerald-500 font-medium">+₹12.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-gray-200 text-center">
+                        <button class="text-emerald-500 font-medium hover:text-emerald-600">
+                            View All Pickups
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rewards Progress -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6 border-b border-gray-200">
+                        <h2 class="text-xl font-bold text-gray-800">Your Rewards</h2>
+                    </div>
+                    <div class="p-6">
+                        <!-- Progress Ring -->
+                        <div class="flex justify-center mb-6">
+                            <div class="relative w-40 h-40">
+                                <svg class="w-full h-full" viewBox="0 0 100 100">
+                                    <circle
+                                        class="text-gray-200"
+                                        stroke-width="8"
+                                        stroke="currentColor"
+                                        fill="transparent"
+                                        r="40"
+                                        cx="50"
+                                        cy="50"
+                                    />
+                                    <circle
+                                        class="text-emerald-500"
+                                        stroke-width="8"
+                                        stroke-dasharray="251.2"
+                                        stroke-dashoffset="87.92"
+                                        stroke-linecap="round"
+                                        stroke="currentColor"
+                                        fill="transparent"
+                                        r="40"
+                                        cx="50"
+                                        cy="50"
+                                    />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                                    <span class="text-2xl font-bold text-gray-800">₹122.50</span>
+                                    <span class="text-sm text-gray-500">65% to next tier</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Milestones -->
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 rounded-full bg-emerald-500 mr-2"></div>
+                                    <span>Bronze Tier (₹100)</span>
+                                </div>
+                                <i class="fas fa-check text-emerald-500"></i>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 rounded-full bg-gray-300 mr-2"></div>
+                                    <span>Silver Tier (₹200)</span>
+                                </div>
+                                <span class="text-sm text-gray-500">₹77.50 to go</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 rounded-full bg-gray-300 mr-2"></div>
+                                    <span>Gold Tier (₹500)</span>
+                                </div>
+                                <span class="text-sm text-gray-500">₹377.50 to go</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <button class="w-full bg-emerald-500 text-white px-4 py-3 rounded-md font-medium hover:bg-emerald-600">
+                                Redeem Rewards
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Trovvin Recyclers</h3>
+                    <p class="text-gray-400">
+                        India's smartest e-waste recycling platform powered by AI.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="how-it-works.html" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="request-pickup.html" class="text-gray-400 hover:text-white">Request Pickup</a></li>
+                        <li><a href="rewards.html" class="text-gray-400 hover:text-white">Rewards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2"></i> +91 9876543210
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> hello@trovvin.in
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Trovvin Recyclers. All rights reserved.</p>
+                <div class="mt-2">
+                    <a href="#" class="text-sm hover:text-white">Privacy Policy</a> | 
+                    <a href="#" class="text-sm hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Dashboard page loaded');
+            
+            // In production, this would fetch real user data
+            // and update the dashboard dynamically
+            
+            // Example of interactive elements
+            const newPickupBtn = document.querySelector('button.bg-emerald-500');
+            newPickupBtn.addEventListener('click', function() {
+                // Would navigate to pickup request page
+                console.log('Navigating to new pickup request');
+            });
+        });
+    </script>
+</body>
+</html>
