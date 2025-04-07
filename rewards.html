@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards System | Trovvin Recyclers</title>
+    <meta name="description" content="Earn and redeem rewards for recycling e-waste with Trovvin">
+    <!-- Production-optimized Tailwind CSS -->
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .reward-card {
+            transition: all 0.3s ease;
+        }
+        .reward-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #10b981;
+            width: 65%; /* Example progress */
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-emerald-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-recycle text-2xl"></i>
+                <span class="text-xl font-bold">Trovvin Recyclers</span>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-emerald-200">Home</a>
+                <a href="how-it-works.html" class="hover:text-emerald-200">How It Works</a>
+                <a href="request-pickup.html" class="hover:text-emerald-200">Request Pickup</a>
+                <a href="#" class="text-emerald-200 font-medium">Rewards</a>
+                <a href="dashboard.html" class="hover:text-emerald-200">Dashboard</a>
+            </nav>
+            <div class="flex space-x-4">
+                <button class="bg-white text-emerald-600 px-4 py-2 rounded-md font-medium hover:bg-gray-100">
+                    Login
+                </button>
+                <button class="bg-emerald-700 text-white px-4 py-2 rounded-md font-medium hover:bg-emerald-800">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Your Recycling Rewards</h1>
+            <p class="text-lg text-center text-gray-600 mb-12">
+                Earn ₹5 for every kg of e-waste recycled and redeem your rewards
+            </p>
+
+            <!-- Rewards Summary -->
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-12">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Total Recycled -->
+                    <div class="text-center p-4 border-r border-gray-200">
+                        <div class="text-emerald-500 text-4xl mb-2">
+                            <i class="fas fa-weight-hanging"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-1">Total Recycled</h3>
+                        <p class="text-3xl font-bold text-gray-800">24.5 <span class="text-lg">kg</span></p>
+                    </div>
+                    
+                    <!-- Rewards Earned -->
+                    <div class="text-center p-4 border-r border-gray-200">
+                        <div class="text-emerald-500 text-4xl mb-2">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-1">Rewards Earned</h3>
+                        <p class="text-3xl font-bold text-gray-800">₹122.50</p>
+                    </div>
+                    
+                    <!-- Next Milestone -->
+                    <div class="text-center p-4">
+                        <div class="text-emerald-500 text-4xl mb-2">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-1">Next Milestone</h3>
+                        <p class="text-gray-600 mb-2">25 kg (₹125)</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Redeem Rewards -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Redeem Your Rewards</h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- UPI Payment -->
+                    <div class="reward-card bg-white rounded-lg shadow-sm p-6 border border-transparent hover:border-emerald-400 cursor-pointer">
+                        <div class="text-emerald-500 text-4xl mb-4">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">UPI Transfer</h3>
+                        <p class="text-gray-600 mb-4">
+                            Instant transfer to PhonePe, GPay, Paytm or any UPI ID
+                        </p>
+                        <button class="bg-emerald-500 text-white px-4 py-2 rounded-md font-medium hover:bg-emerald-600 w-full">
+                            Redeem via UPI
+                        </button>
+                    </div>
+                    
+                    <!-- Bank Transfer -->
+                    <div class="reward-card bg-white rounded-lg shadow-sm p-6 border border-transparent hover:border-emerald-400 cursor-pointer">
+                        <div class="text-emerald-500 text-4xl mb-4">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Bank Transfer</h3>
+                        <p class="text-gray-600 mb-4">
+                            Direct transfer to your bank account (1-2 business days)
+                        </p>
+                        <button class="bg-emerald-500 text-white px-4 py-2 rounded-md font-medium hover:bg-emerald-600 w-full">
+                            Redeem to Bank
+                        </button>
+                    </div>
+                    
+                    <!-- Gift Vouchers -->
+                    <div class="reward-card bg-white rounded-lg shadow-sm p-6 border border-transparent hover:border-emerald-400 cursor-pointer">
+                        <div class="text-emerald-500 text-4xl mb-4">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Gift Vouchers</h3>
+                        <p class="text-gray-600 mb-4">
+                            Redeem for Amazon, Flipkart, and other popular vouchers
+                        </p>
+                        <button class="bg-emerald-500 text-white px-4 py-2 rounded-md font-medium hover:bg-emerald-600 w-full">
+                            Browse Vouchers
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transaction History -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6 border-b border-gray-200">
+                    <h2 class="text-2xl font-bold text-gray-800">Your Recycling History</h2>
+                </div>
+                <div class="divide-y divide-gray-200">
+                    <!-- Transaction 1 -->
+                    <div class="p-6 hover:bg-gray-50">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-medium">Laptop Recycling</div>
+                            <div class="text-emerald-500 font-bold">+₹25.00</div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <div>5.0 kg • 15 Oct 2023</div>
+                            <div>Completed</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Transaction 2 -->
+                    <div class="p-6 hover:bg-gray-50">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-medium">Mobile Phones</div>
+                            <div class="text-emerald-500 font-bold">+₹15.00</div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <div>3.0 kg • 8 Oct 2023</div>
+                            <div>Completed</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Transaction 3 -->
+                    <div class="p-6 hover:bg-gray-50">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-medium">Batteries</div>
+                            <div class="text-emerald-500 font-bold">+₹12.50</div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <div>2.5 kg • 1 Oct 2023</div>
+                            <div>Completed</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Transaction 4 -->
+                    <div class="p-6 hover:bg-gray-50">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-medium">Electronics</div>
+                            <div class="text-emerald-500 font-bold">+₹70.00</div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <div>14.0 kg • 22 Sep 2023</div>
+                            <div>Completed</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 border-t border-gray-200 text-center">
+                    <button class="text-emerald-500 font-medium hover:text-emerald-600">
+                        View All Transactions
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Trovvin Recyclers</h3>
+                    <p class="text-gray-400">
+                        India's smartest e-waste recycling platform powered by AI.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="how-it-works.html" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="request-pickup.html" class="text-gray-400 hover:text-white">Request Pickup</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Rewards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2"></i> +91 9876543210
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> hello@trovvin.in
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Trovvin Recyclers. All rights reserved.</p>
+                <div class="mt-2">
+                    <a href="#" class="text-sm hover:text-white">Privacy Policy</a> | 
+                    <a href="#" class="text-sm hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Rewards page loaded');
+            
+            // Reward card interaction
+            const rewardCards = document.querySelectorAll('.reward-card');
+            rewardCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // In production, would show redemption modal
+                    console.log('Selected redemption option');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
