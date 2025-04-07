@@ -1,0 +1,40 @@
+/* Custom styles that override/extend Tailwind */
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom focus styles for better accessibility */
+button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid #059669;
+    outline-offset: 2px;
+}
+
+/* Animation for loading spinner */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Custom transition for dropdowns */
+.dropdown-transition {
+    transition: all 0.2s ease-out;
+}
+
+/* Responsive iframe embedding */
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
