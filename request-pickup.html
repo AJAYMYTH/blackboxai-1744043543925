@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request E-Waste Pickup | Trovvin Recyclers</title>
+    <meta name="description" content="Schedule an e-waste pickup with our AI-powered recycling platform">
+    <!-- Production-optimized Tailwind CSS -->
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        #map {
+            height: 300px;
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+        .form-input {
+            transition: all 0.2s;
+        }
+        .form-input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-emerald-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-recycle text-2xl"></i>
+                <span class="text-xl font-bold">Trovvin Recyclers</span>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-emerald-200">Home</a>
+                <a href="how-it-works.html" class="hover:text-emerald-200">How It Works</a>
+                <a href="#" class="text-emerald-200 font-medium">Request Pickup</a>
+                <a href="rewards.html" class="hover:text-emerald-200">Rewards</a>
+                <a href="dashboard.html" class="hover:text-emerald-200">Dashboard</a>
+            </nav>
+            <div class="flex space-x-4">
+                <button class="bg-white text-emerald-600 px-4 py-2 rounded-md font-medium hover:bg-gray-100">
+                    Login
+                </button>
+                <button class="bg-emerald-700 text-white px-4 py-2 rounded-md font-medium hover:bg-emerald-800">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Request E-Waste Pickup</h1>
+            <p class="text-lg text-center text-gray-600 mb-8">
+                Schedule a convenient time for us to collect your e-waste and earn rewards!
+            </p>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <!-- Form Steps -->
+                <div class="flex border-b">
+                    <div class="w-1/3 py-4 px-6 text-center border-b-2 border-emerald-500 font-medium">
+                        <span class="bg-emerald-500 text-white rounded-full w-6 h-6 inline-flex items-center justify-center mr-2">1</span>
+                        Location
+                    </div>
+                    <div class="w-1/3 py-4 px-6 text-center text-gray-500">
+                        <span class="bg-gray-200 text-gray-600 rounded-full w-6 h-6 inline-flex items-center justify-center mr-2">2</span>
+                        E-Waste Details
+                    </div>
+                    <div class="w-1/3 py-4 px-6 text-center text-gray-500">
+                        <span class="bg-gray-200 text-gray-600 rounded-full w-6 h-6 inline-flex items-center justify-center mr-2">3</span>
+                        Contact Info
+                    </div>
+                </div>
+
+                <!-- Form Content -->
+                <div class="p-6 md:p-8">
+                    <!-- Location Section -->
+                    <div id="location-section">
+                        <h2 class="text-xl font-semibold mb-4">Select Pickup Location</h2>
+                        
+                        <div class="mb-6">
+                            <div class="flex space-x-4 mb-4">
+                                <button id="map-btn" class="bg-emerald-500 text-white px-4 py-2 rounded-md font-medium flex items-center">
+                                    <i class="fas fa-map-marker-alt mr-2"></i> Use Map
+                                </button>
+                                <button id="manual-btn" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md font-medium flex items-center">
+                                    <i class="fas fa-keyboard mr-2"></i> Enter Manually
+                                </button>
+                            </div>
+
+                            <!-- Map Container -->
+                            <div id="map-container" class="mb-6">
+                                <div id="map"></div>
+                                <p class="text-sm text-gray-500 mt-2">Drag the marker to your exact location</p>
+                            </div>
+
+                            <!-- Manual Address Input -->
+                            <div id="manual-address" class="hidden">
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label for="address-line1" class="block text-sm font-medium text-gray-700 mb-1">Address Line 1*</label>
+                                        <input type="text" id="address-line1" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                    </div>
+                                    <div>
+                                        <label for="address-line2" class="block text-sm font-medium text-gray-700 mb-1">Address Line 2</label>
+                                        <input type="text" id="address-line2" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div>
+                                        <label for="city" class="block text-sm font-medium text-gray-700 mb-1">City*</label>
+                                        <input type="text" id="city" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                    </div>
+                                    <div>
+                                        <label for="state" class="block text-sm font-medium text-gray-700 mb-1">State*</label>
+                                        <input type="text" id="state" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                    </div>
+                                    <div>
+                                        <label for="pincode" class="block text-sm font-medium text-gray-700 mb-1">Pincode*</label>
+                                        <input type="text" id="pincode" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md font-medium hover:bg-gray-300">
+                                Cancel
+                            </button>
+                            <button id="next-to-details" class="bg-emerald-500 text-white px-6 py-2 rounded-md font-medium hover:bg-emerald-600">
+                                Next: E-Waste Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- E-Waste Details Section (Hidden Initially) -->
+                    <div id="ewaste-section" class="hidden">
+                        <h2 class="text-xl font-semibold mb-4">E-Waste Details</h2>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Select E-Waste Type*</label>
+                            <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- E-Waste Type Cards -->
+                                <div class="ewaste-card border rounded-lg p-4 hover:border-emerald-400 cursor-pointer">
+                                    <div class="flex items-center">
+                                        <div class="bg-emerald-100 text-emerald-600 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                            <i class="fas fa-laptop"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">Computers & Laptops</h3>
+                                            <p class="text-sm text-gray-500">Desktops, laptops, tablets</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ewaste-card border rounded-lg p-4 hover:border-emerald-400 cursor-pointer">
+                                    <div class="flex items-center">
+                                        <div class="bg-emerald-100 text-emerald-600 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">Mobile Phones</h3>
+                                            <p class="text-sm text-gray-500">Smartphones, feature phones</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ewaste-card border rounded-lg p-4 hover:border-emerald-400 cursor-pointer">
+                                    <div class="flex items-center">
+                                        <div class="bg-emerald-100 text-emerald-600 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                            <i class="fas fa-battery-full"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">Batteries</h3>
+                                            <p class="text-sm text-gray-500">Li-ion, lead-acid, etc.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ewaste-card border rounded-lg p-4 hover:border-emerald-400 cursor-pointer">
+                                    <div class="flex items-center">
+                                        <div class="bg-emerald-100 text-emerald-600 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                            <i class="fas fa-plug"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">Electronics</h3>
+                                            <p class="text-sm text-gray-500">TVs, cameras, appliances</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="ewaste-weight" class="block text-sm font-medium text-gray-700 mb-1">Estimated Weight (kg)*</label>
+                                <input type="number" id="ewaste-weight" min="1" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                <p class="text-sm text-gray-500 mt-1">You'll earn ₹5 for every kg recycled</p>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="ewaste-description" class="block text-sm font-medium text-gray-700 mb-1">Additional Description</label>
+                                <textarea id="ewaste-description" rows="3" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="E.g. 2 laptops, 3 mobile phones, etc."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <button id="back-to-location" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md font-medium hover:bg-gray-300">
+                                Back
+                            </button>
+                            <button id="next-to-contact" class="bg-emerald-500 text-white px-6 py-2 rounded-md font-medium hover:bg-emerald-600">
+                                Next: Contact Info
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info Section (Hidden Initially) -->
+                    <div id="contact-section" class="hidden">
+                        <h2 class="text-xl font-semibold mb-4">Contact Information</h2>
+                        
+                        <div class="mb-6">
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name*</label>
+                                    <input type="text" id="full-name" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+                                    <input type="email" id="email" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number*</label>
+                                <input type="tel" id="phone" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="pickup-date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Pickup Date*</label>
+                                <input type="date" id="pickup-date" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="pickup-time" class="block text-sm font-medium text-gray-700 mb-1">Preferred Pickup Time*</label>
+                                <select id="pickup-time" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                    <option value="">Select a time slot</option>
+                                    <option value="9am-12pm">9:00 AM - 12:00 PM</option>
+                                    <option value="12pm-3pm">12:00 PM - 3:00 PM</option>
+                                    <option value="3pm-6pm">3:00 PM - 6:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <button id="back-to-ewaste" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md font-medium hover:bg-gray-300">
+                                Back
+                            </button>
+                            <button id="submit-request" class="bg-emerald-500 text-white px-6 py-2 rounded-md font-medium hover:bg-emerald-600">
+                                Submit Request
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Trovvin Recyclers</h3>
+                    <p class="text-gray-400">
+                        India's smartest e-waste recycling platform powered by AI.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="how-it-works.html" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Request Pickup</a></li>
+                        <li><a href="rewards.html" class="text-gray-400 hover:text-white">Rewards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2"></i> +91 9876543210
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> hello@trovvin.in
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Trovvin Recyclers. All rights reserved.</p>
+                <div class="mt-2">
+                    <a href="#" class="text-sm hover:text-white">Privacy Policy</a> | 
+                    <a href="#" class="text-sm hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Google Maps API (Placeholder - would need actual API key in production) -->
+    <script>
+        // Initialize form steps
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Pickup request form loaded');
+            
+            // Form navigation
+            const nextToDetails = document.getElementById('next-to-details');
+            const nextToContact = document.getElementById('next-to-contact');
+            const backToLocation = document.getElementById('back-to-location');
+            const backToEwaste = document.getElementById('back-to-ewaste');
+            
+            const locationSection = document.getElementById('location-section');
+            const ewasteSection = document.getElementById('ewaste-section');
+            const contactSection = document.getElementById('contact-section');
+            
+            nextToDetails.addEventListener('click', function() {
+                locationSection.classList.add('hidden');
+                ewasteSection.classList.remove('hidden');
+            });
+            
+            nextToContact.addEventListener('click', function() {
+                ewasteSection.classList.add('hidden');
+                contactSection.classList.remove('hidden');
+            });
+            
+            backToLocation.addEventListener('click', function() {
+                ewasteSection.classList.add('hidden');
+                locationSection.classList.remove('hidden');
+            });
+            
+            backToEwaste.addEventListener('click', function() {
+                contactSection.classList.add('hidden');
+                ewasteSection.classList.remove('hidden');
+            });
+            
+            // Map/Manual toggle
+            const mapBtn = document.getElementById('map-btn');
+            const manualBtn = document.getElementById('manual-btn');
+            const mapContainer = document.getElementById('map-container');
+            const manualAddress = document.getElementById('manual-address');
+            
+            mapBtn.addEventListener('click', function() {
+                mapBtn.classList.add('bg-emerald-500', 'text-white');
+                mapBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                manualBtn.classList.add('bg-gray-200', 'text-gray-700');
+                manualBtn.classList.remove('bg-emerald-500', 'text-white');
+                mapContainer.classList.remove('hidden');
+                manualAddress.classList.add('hidden');
+            });
+            
+            manualBtn.addEventListener('click', function() {
+                manualBtn.classList.add('bg-emerald-500', 'text-white');
+                manualBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                mapBtn.classList.add('bg-gray-200', 'text-gray-700');
+                mapBtn.classList.remove('bg-emerald-500', 'text-white');
+                manualAddress.classList.remove('hidden');
+                mapContainer.classList.add('hidden');
+            });
+            
+            // E-waste card selection
+            const ewasteCards = document.querySelectorAll('.ewaste-card');
+            ewasteCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    ewasteCards.forEach(c => c.classList.remove('border-emerald-500', 'bg-emerald-50'));
+                    this.classList.add('border-emerald-500', 'bg-emerald-50');
+                });
+            });
+            
+            // Form submission
+            const submitBtn = document.getElementById('submit-request');
+            submitBtn.addEventListener('click', function() {
+                alert('Pickup request submitted successfully!');
+                // In production, would send data to backend
+            });
+            
+            // Initialize map (placeholder - would need actual Google Maps API key)
+            function initMap() {
+                console.log('Map would be initialized here with Google Maps API');
+                // Actual implementation would require API key
+            }
+            
+            // Call initMap when window loads
+            window.initMap = initMap;
+        });
+    </script>
+    
+    <!-- Google Maps API Script (Placeholder - would need actual API key) -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+</body>
+</html>
