@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Trovvin Recyclers</title>
+    <meta name="description" content="Get in touch with Trovvin Recyclers for e-waste pickup and recycling queries">
+    <!-- Production-optimized Tailwind CSS -->
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .form-input {
+            transition: all 0.2s;
+        }
+        .form-input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+        .faq-item {
+            transition: all 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-emerald-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-recycle text-2xl"></i>
+                <span class="text-xl font-bold">Trovvin Recyclers</span>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-emerald-200">Home</a>
+                <a href="how-it-works.html" class="hover:text-emerald-200">How It Works</a>
+                <a href="request-pickup.html" class="hover:text-emerald-200">Request Pickup</a>
+                <a href="rewards.html" class="hover:text-emerald-200">Rewards</a>
+                <a href="dashboard.html" class="hover:text-emerald-200">Dashboard</a>
+            </nav>
+            <div class="flex space-x-4">
+                <button class="bg-white text-emerald-600 px-4 py-2 rounded-md font-medium hover:bg-gray-100">
+                    Login
+                </button>
+                <button class="bg-emerald-700 text-white px-4 py-2 rounded-md font-medium hover:bg-emerald-800">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Contact Trovvin Recyclers</h1>
+            <p class="text-lg text-center text-gray-600 mb-12">
+                Have questions about e-waste recycling? We're here to help!
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">Send us a message</h2>
+                    <form>
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name*</label>
+                            <input type="text" id="name" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+                            <input type="email" id="email" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject*</label>
+                            <select id="subject" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                                <option value="">Select a subject</option>
+                                <option value="pickup">Pickup Request</option>
+                                <option value="rewards">Rewards Program</option>
+                                <option value="partnership">Business Partnership</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message*</label>
+                            <textarea id="message" rows="4" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-500 text-white px-6 py-3 rounded-md font-medium hover:bg-emerald-600">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info & FAQ -->
+                <div>
+                    <!-- Contact Info -->
+                    <div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
+                        <h2 class="text-2xl font-bold mb-6 text-gray-800">Our Information</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-emerald-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-800">Headquarters</h3>
+                                    <p class="text-gray-600">123 Green Tech Park, Bangalore, Karnataka 560001</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-emerald-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-800">Phone</h3>
+                                    <p class="text-gray-600">+91 9876543210 (10AM - 6PM, Mon-Sat)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-emerald-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-800">Email</h3>
+                                    <p class="text-gray-600">hello@trovvin.in</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h3 class="font-medium text-gray-800 mb-3">Follow Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-600 hover:text-emerald-500 text-2xl">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-emerald-500 text-2xl">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-emerald-500 text-2xl">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-emerald-500 text-2xl">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                        <h2 class="text-2xl font-bold mb-6 text-gray-800">Frequently Asked Questions</h2>
+                        <div class="space-y-4">
+                            <!-- FAQ Item 1 -->
+                            <div class="faq-item bg-gray-50 rounded-lg p-4 cursor-pointer">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-medium text-gray-800">What types of e-waste do you accept?</h3>
+                                    <i class="fas fa-chevron-down text-emerald-500"></i>
+                                </div>
+                                <div class="hidden mt-2 text-gray-600">
+                                    We accept all types of electronic waste including computers, laptops, mobile phones, tablets, TVs, printers, batteries, and other electronic devices.
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ Item 2 -->
+                            <div class="faq-item bg-gray-50 rounded-lg p-4 cursor-pointer">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-medium text-gray-800">How are rewards calculated?</h3>
+                                    <i class="fas fa-chevron-down text-emerald-500"></i>
+                                </div>
+                                <div class="hidden mt-2 text-gray-600">
+                                    You earn ₹5 for every kilogram of e-waste recycled. The weight is measured when we collect your items and the rewards are credited to your account within 24 hours.
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ Item 3 -->
+                            <div class="faq-item bg-gray-50 rounded-lg p-4 cursor-pointer">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-medium text-gray-800">Is there a minimum quantity for pickup?</h3>
+                                    <i class="fas fa-chevron-down text-emerald-500"></i>
+                                </div>
+                                <div class="hidden mt-2 text-gray-600">
+                                    No, we accept any quantity of e-waste. However, rewards are only applicable for pickups of 1kg or more.
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ Item 4 -->
+                            <div class="faq-item bg-gray-50 rounded-lg p-4 cursor-pointer">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-medium text-gray-800">How do I track my pickup request?</h3>
+                                    <i class="fas fa-chevron-down text-emerald-500"></i>
+                                </div>
+                                <div class="hidden mt-2 text-gray-600">
+                                    You can track your pickup status in real-time through your dashboard. We'll also send SMS and email notifications at each stage.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Trovvin Recyclers</h3>
+                    <p class="text-gray-400">
+                        India's smartest e-waste recycling platform powered by AI.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="how-it-works.html" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="request-pickup.html" class="text-gray-400 hover:text-white">Request Pickup</a></li>
+                        <li><a href="rewards.html" class="text-gray-400 hover:text-white">Rewards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2"></i> +91 9876543210
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> hello@trovvin.in
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Trovvin Recyclers. All rights reserved.</p>
+                <div class="mt-2">
+                    <a href="#" class="text-sm hover:text-white">Privacy Policy</a> | 
+                    <a href="#" class="text-sm hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Contact page loaded');
+            
+            // FAQ toggle functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const header = item.querySelector('h3');
+                const content = item.querySelector('div');
+                const icon = item.querySelector('i');
+                
+                header.addEventListener('click', () => {
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+            
+            // Form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
