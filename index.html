@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://favicon-generator.org/favicon.ico">
+    <title>Trovvin Recyclers - AI-Powered E-Waste Recycling</title>
+    <meta name="description" content="India's smartest e-waste recycling platform with AI assistance and reward system">
+    <!-- Production-optimized Tailwind CSS -->
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-emerald-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-recycle text-2xl"></i>
+                <span class="text-xl font-bold">Trovvin Recyclers</span>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-emerald-200">Home</a>
+                <a href="#" class="hover:text-emerald-200">How It Works</a>
+                <a href="#" class="hover:text-emerald-200">Request Pickup</a>
+                <a href="#" class="hover:text-emerald-200">Rewards</a>
+                <a href="#" class="hover:text-emerald-200">Dashboard</a>
+            </nav>
+            <div class="flex space-x-4">
+                <button class="bg-white text-emerald-600 px-4 py-2 rounded-md font-medium hover:bg-gray-100">
+                    Login
+                </button>
+                <button class="bg-emerald-700 text-white px-4 py-2 rounded-md font-medium hover:bg-emerald-800">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-emerald-500 to-blue-500 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Recycle E-Waste. Earn Rewards.</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                India's first AI-powered e-waste recycling platform that rewards you for being eco-friendly.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-white text-emerald-600 px-8 py-3 rounded-md font-bold hover:bg-gray-100">
+                    Request Pickup
+                </button>
+                <button class="bg-transparent border-2 border-white px-8 py-3 rounded-md font-bold hover:bg-white hover:text-emerald-600">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Why Choose Trovvin?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-emerald-500 text-4xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">AI Assistance</h3>
+                    <p class="text-gray-600">
+                        Our Gemini AI bot guides you through the recycling process and answers all your questions.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-emerald-500 text-4xl mb-4">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Earn Rewards</h3>
+                    <p class="text-gray-600">
+                        Get ₹5 for every kg of e-waste recycled. Redeem via UPI, bank transfer, or gift vouchers.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-emerald-500 text-4xl mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Easy Pickup</h3>
+                    <p class="text-gray-600">
+                        Schedule pickup with our map integration or enter your address manually.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">AI Recycling Assistant</h2>
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                        <i class="fas fa-robot text-emerald-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold">Gemini AI Assistant</h3>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4 h-48 overflow-y-auto">
+                    <p class="text-gray-600">Hello! I'm your recycling assistant. Ask me anything about:</p>
+                    <ul class="list-disc pl-5 mt-2 text-gray-600">
+                        <li>How to request a pickup</li>
+                        <li>How to check your reward points</li>
+                        <li>How we recycle e-waste</li>
+                    </ul>
+                </div>
+                <div class="flex">
+                    <input type="text" placeholder="Ask me about recycling..." 
+                        class="flex-grow px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <button class="bg-emerald-500 text-white px-4 py-2 rounded-r-lg hover:bg-emerald-600">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Trovvin Recyclers</h3>
+                    <p class="text-gray-400">
+                        India's smartest e-waste recycling platform powered by AI.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Request Pickup</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Rewards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2"></i> +91 9876543210
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> hello@trovvin.in
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Trovvin Recyclers. All rights reserved.</p>
+                <div class="mt-2">
+                    <a href="#" class="text-sm hover:text-white">Privacy Policy</a> | 
+                    <a href="#" class="text-sm hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Placeholder for future JavaScript functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Trovvin Recyclers website loaded');
+        });
+    </script>
+</body>
+</html>
